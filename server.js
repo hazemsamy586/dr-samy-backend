@@ -3,6 +3,10 @@
 // (نسخة متصلة بقاعدة بيانات MongoDB)
 // =====================================
 
+// حل مشكلة "crypto is not defined" في بعض نسخ Node.js
+if (!global.crypto) {
+    global.crypto = require("node:crypto").webcrypto;
+}
 const express = require("express");
 const cors = require("cors");
 const { MongoClient, ObjectId } = require("mongodb");
